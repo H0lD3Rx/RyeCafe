@@ -1,51 +1,41 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Slider Styling */
+/* Header Styling */
+header {
+    background-color: #4CAF50; /* Rich green */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Slider Section */
 .slider-container {
     overflow: hidden;
     width: 100%;
-    height: 300px; /* Adjust as needed */
+    height: 400px; /* Height of the slider */
     position: relative;
 }
 
 .slider {
     display: flex;
-    width: calc(100% * 17); /* 100% * number of images */
-    animation: slide 34s infinite; /* Total animation time = 17 images * 2s each */
+    transition: transform 0.5s ease; /* Smooth transition */
+    height: 100%; /* Full height */
 }
 
 .slider img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-/* Keyframes for smooth sliding */
-@keyframes slide {
-    0% { transform: translateX(0); }
-    5.88% { transform: translateX(-100%); }
-    11.76% { transform: translateX(-200%); }
-    17.65% { transform: translateX(-300%); }
-    23.53% { transform: translateX(-400%); }
-    29.41% { transform: translateX(-500%); }
-    35.29% { transform: translateX(-600%); }
-    41.18% { transform: translateX(-700%); }
-    47.06% { transform: translateX(-800%); }
-    52.94% { transform: translateX(-900%); }
-    58.82% { transform: translateX(-1000%); }
-    64.71% { transform: translateX(-1100%); }
-    70.59% { transform: translateX(-1200%); }
-    76.47% { transform: translateX(-1300%); }
-    82.35% { transform: translateX(-1400%); }
-    88.24% { transform: translateX(-1500%); }
-    94.12% { transform: translateX(-1600%); }
-    100% { transform: translateX(0); }
+    height: 400px; /* Maintain aspect ratio */
+    object-fit: cover; /* Crop images nicely */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
 /* About Section Styling */
@@ -53,19 +43,18 @@ body {
     padding: 20px;
     font-size: 1.2em;
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s forwards;
-    animation-delay: 2s;
+    margin: 20px 0;
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Optional: Additional styling for a modern look */
+h1 {
+    font-size: 2.5em; /* Larger header */
+    margin: 0;
+}
+
+p {
+    margin: 5px 0;
 }
