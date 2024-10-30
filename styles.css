@@ -1,27 +1,58 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Slider Styling */
+.slider-container {
+    overflow: hidden;
+    width: 100%;
+    height: 300px; /* Adjust as needed */
+    position: relative;
 }
 
 .slider {
-    overflow: hidden;
-    width: 100%;
     display: flex;
-    animation: slide 10s infinite linear;
+    width: calc(100% * 17); /* 100% * number of images */
+    animation: slide 34s infinite; /* Total animation time = 17 images * 2s each */
 }
 
 .slider img {
     width: 100%;
-    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
+/* Keyframes for smooth sliding */
 @keyframes slide {
     0% { transform: translateX(0); }
-    20% { transform: translateX(-100%); }
-    40% { transform: translateX(-200%); }
-    /* Add more steps if you add more images */
+    5.88% { transform: translateX(-100%); }
+    11.76% { transform: translateX(-200%); }
+    17.65% { transform: translateX(-300%); }
+    23.53% { transform: translateX(-400%); }
+    29.41% { transform: translateX(-500%); }
+    35.29% { transform: translateX(-600%); }
+    41.18% { transform: translateX(-700%); }
+    47.06% { transform: translateX(-800%); }
+    52.94% { transform: translateX(-900%); }
+    58.82% { transform: translateX(-1000%); }
+    64.71% { transform: translateX(-1100%); }
+    70.59% { transform: translateX(-1200%); }
+    76.47% { transform: translateX(-1300%); }
+    82.35% { transform: translateX(-1400%); }
+    88.24% { transform: translateX(-1500%); }
+    94.12% { transform: translateX(-1600%); }
+    100% { transform: translateX(0); }
 }
 
+/* About Section Styling */
 .about {
+    padding: 20px;
+    font-size: 1.2em;
+    text-align: center;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s forwards;
