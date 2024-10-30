@@ -56,21 +56,26 @@
             position: relative;
             overflow: hidden;
             height: 400px; /* Adjust height as needed */
-            display: flex;
-            justify-content: center; /* Center the image */
-            align-items: center; /* Center vertically */
         }
 
         .slides {
             display: flex;
-            height: 100%;
-            transition: transform 0.5s ease; /* Smooth slide transition */
+            animation: scroll 30s linear infinite; /* Smooth continuous scrolling */
         }
 
         .slide-image {
             width: 100%; /* Full width of the slider */
             height: auto; /* Maintain aspect ratio */
             object-fit: cover; /* Cover the slider area */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%); /* Adjust this value based on the number of images */
+            }
         }
 
         #about, #menu, #contact {
@@ -111,7 +116,6 @@
             <div class="slides" id="slides">
                 <!-- Images will be added here by JavaScript -->
             </div>
-            <div class="scroll-text">Scroll down for more</div>
         </div>
     </section>
 
@@ -239,21 +243,10 @@
             slidesDiv.appendChild(img);
         });
 
-        let currentIndex = 0;
+        // Clone the images for a continuous effect
+        const slidesClone = slidesDiv.innerHTML; 
+        slidesDiv.innerHTML += slidesClone; // Duplicate the slides
 
-        function showSlide(index) {
-            const slidesDiv = document.getElementById("slides");
-            slidesDiv.style.transform = `translateX(${-index * 100}%)`; // Slide to the left
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
-            showSlide(currentIndex);
-        }
-
-        // Initial display of the first slide
-        showSlide(currentIndex);
-        setInterval(nextSlide, 2000); // Change slide every 2 seconds
     </script>
 </body>
 </html>
