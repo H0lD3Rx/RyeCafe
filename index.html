@@ -7,70 +7,85 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Rye Café</h1>
-        <p>Showgrounds Village, shop 16/320 - 380 Epsom Rd, Flemington VIC 3031</p>
-        <p>Hours: Wednesday - Monday (varied hours)</p>
-        <p>Phone: (03) 9376 3366</p>
+    <header id="header">
+        <h1 id="logo"><a href="#">Rye Café</a></h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Slider Section -->
-    <section class="slider-container">
-        <div class="slider" id="slider">
-            <!-- Images will be dynamically loaded here -->
+    <section id="slider">
+        <div class="slider-wrapper">
+            <div class="slides" id="slides"></div>
         </div>
-        <div class="dots" id="dots"></div>
     </section>
 
-    <section class="about">
-        <p>Rye is a beautiful family-owned café known for its brilliant breakfast and superb lunch menu.</p>
+    <section id="about">
+        <h2>Welcome to Rye Café</h2>
+        <p>Rye is a beautiful family-owned café with a brilliant breakfast and superb lunch made with love.</p>
     </section>
+
+    <section id="menu">
+        <h2>Menu</h2>
+        <p>Check out our delicious offerings!</p>
+        <!-- You can add your menu here -->
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Address: Showgrounds Village, shop 16/320 - 380 Epsom Rd, Flemington VIC 3031</p>
+        <p>Phone: (03) 9376 3366</p>
+        <p>Hours:</p>
+        <ul>
+            <li>Wednesday - Monday: 7 AM - 3 PM</li>
+            <li>Saturday: 8 AM - 3 PM</li>
+            <li>Sunday: 9 AM - 3 PM</li>
+        </ul>
+    </section>
+
+    <footer id="footer">
+        <p>&copy; 2024 Rye Café. All rights reserved.</p>
+    </footer>
 
     <script>
-        const slider = document.getElementById('slider');
-        const dotsContainer = document.getElementById('dots');
+        const images = [
+            "photos/290550875_5798582436836568_7354787480353487901_n.jpg",
+            "photos/292049205_5827808987247246_6018131452829609868_n.jpg",
+            "photos/293097389_5855319824496162_4644517993660578949_n.jpg",
+            "photos/294711137_5887079477986863_2954329408615933331_n.jpg",
+            "photos/296804957_5898442346850576_6976407445617438895_n.jpg",
+            "photos/297031292_5913113628716781_8506389834127134166_n.jpg",
+            "photos/298796002_5941772489184228_2256827323153020437_n.jpg",
+            "photos/301046943_5966333520061458_5922614808268939713_n.jpg",
+            "photos/302705119_6019410258087117_6682834543800288617_n.jpg",
+            "photos/308110430_6054348114593331_8793996287181770558_n.jpg",
+            "photos/308009047_6091023654259110_6395614127426074071_n.jpg",
+            "photos/309262375_6106675769360565_1854110971838569358_n.jpg",
+            "photos/309833921_6113058158722326_7115620539449243380_n.jpg",
+            "photos/310870700_6132646596763482_970253051370397927_n.jpg",
+            "photos/311741131_6150044251690383_8768235014378640380_n.jpg",
+            "photos/312722434_6182006291827512_1540505160964512139_n.jpg",
+            "photos/315021783_6234215316606609_4481306191238840769_n.jpg"
+        ];
+
         let currentIndex = 0;
 
-        // Fetch the images from the JSON file
-        fetch('images.json')
-            .then(response => response.json())
-            .then(data => {
-                const images = data.images; // Get images array from the JSON data
-
-                images.forEach((image, index) => {
-                    const img = document.createElement('img');
-                    img.src = `https://raw.githubusercontent.com/H0lD3Rx/RyeCafe/main/photos/${image}`; // Fetching images directly from GitHub
-                    img.alt = `Rye Cafe photo ${image}`;
-                    slider.appendChild(img);
-
-                    // Create a dot for each image
-                    const dot = document.createElement('span');
-                    dot.className = 'dot';
-                    dot.addEventListener('click', () => {
-                        currentIndex = index;
-                        updateSlider();
-                    });
-                    dotsContainer.appendChild(dot);
-                });
-
-                // Initial update
-                updateSlider();
-
-                // Automatic slide
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    updateSlider();
-                }, 2000);
-            })
-            .catch(error => console.error('Error fetching images:', error));
-
-        function updateSlider() {
-            const totalImages = slider.children.length;
-            slider.style.transform = `translateX(-${currentIndex * (100 / totalImages)}%)`;
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentIndex].classList.add('active');
+        function showSlide(index) {
+            const slidesDiv = document.getElementById("slides");
+            slidesDiv.innerHTML = `<img src="${images[index]}" alt="Cafe Image" class="slide-image">`;
         }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showSlide(currentIndex);
+        }
+
+        showSlide(currentIndex);
+        setInterval(nextSlide, 2000); // Change slide every 2 seconds
     </script>
 </body>
 </html>
