@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rye Café</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Rye Café</h1>
+        <p>Showgrounds Village, shop 16/320 - 380 Epsom Rd, Flemington VIC 3031</p>
+        <p>Hours: Monday - Sunday (varying hours)</p>
+        <p>Phone: (03) 9376 3366</p>
+    </header>
 
+    <section class="slider" id="slider">
+        <!-- Images will load here via JavaScript -->
+    </section>
+
+    <section class="about">
+        <p>Rye is a beautiful family-owned and run café with a brilliant breakfast and superb lunch menu.</p>
+    </section>
+
+    <script>
+        // JavaScript to dynamically load images
+        const slider = document.getElementById('slider');
+        const totalImages = 5; // Specify the total number of images
+        for (let i = 1; i <= totalImages; i++) {
+            const img = document.createElement('img');
+            img.src = `photos/photo${i}.jpg`;
+            img.alt = `Rye Cafe photo ${i}`;
+            slider.appendChild(img);
+        }
+    </script>
+</body>
+</html>
