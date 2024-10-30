@@ -6,100 +6,67 @@
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #333; /* Dark background */
-    color: #eee; /* Light text */
+    background-color: #2e2e2e; /* Industrial dark gray */
+    color: #d4d4d4;
 }
 
 #header {
-    background: #28a745; /* Vibrant green */
-    color: white;
-    padding: 20px 0;
+    background-color: #444; /* Charcoal background */
+    color: #eaeaea;
+    padding: 20px;
     text-align: center;
 }
 
-#header h1 {
-    margin: 0;
-}
-
-#nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-#nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
 #nav a {
-    color: white;
+    color: #eaeaea;
     text-decoration: none;
-    border: 2px solid transparent; /* For button styling */
-    border-radius: 25px; /* Rounded edges */
-    padding: 8px 16px; /* Button padding */
-}
-
-#nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
+    padding: 8px 16px;
+    border-radius: 5px;
 }
 
 #slider {
     position: relative;
     overflow: hidden;
     height: 400px;
-    display: flex;
-    justify-content: center; /* Center the image */
-    align-items: center; /* Center vertically */
-}
-
-.slider-wrapper {
-    position: relative; /* Position relative for scroll text */
-    height: 100%;
+    background: #333; /* Industrial background */
 }
 
 .slides {
     display: flex;
-    height: 100%;
-    justify-content: center; /* Center the image */
-    align-items: center; /* Center vertically */
-    transition: opacity 0.5s ease; /* Smooth transition for opacity */
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .slide-image {
-    max-width: 100%; /* Maintain aspect ratio */
-    height: auto; /* Keep the height auto */
-    border-radius: 10px; /* Rounded corners for images */
+    max-width: 100%;
+    height: auto;
+    padding: 5px;
+    border: 2px solid #555; /* Industrial border */
+    background-color: #444; /* Charcoal background */
 }
 
 .scroll-text {
     position: absolute;
-    bottom: 20px; /* Position it towards the bottom of the slider */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: white; /* White text */
-    padding: 10px 20px; /* Padding around text */
-    border-radius: 20px; /* Rounded corners */
-    font-size: 18px; /* Font size */
+    bottom: 20px;
+    color: #eaeaea;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 8px;
 }
 
-#about, #menu, #contact {
-    padding: 40px 20px;
+#menu, #contact, #about {
+    padding: 40px;
     text-align: center;
-    background-color: #444; /* Darker section background */
+    background-color: #444;
     margin: 20px 0;
     border-radius: 8px;
 }
 
-h2 {
-    margin-bottom: 20px;
-    color: #28a745; /* Keep vibrant green */
-}
-
 footer {
+    background-color: #444;
+    color: #eaeaea;
+    padding: 20px;
     text-align: center;
-    padding: 20px 0;
-    background: #28a745; /* Vibrant footer color */
-    color: white;
 }
