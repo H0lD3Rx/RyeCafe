@@ -6,7 +6,52 @@
     <title>Rye Café</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Add custom styles for the slider */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #333; /* Dark background */
+            color: #eee; /* Light text */
+        }
+
+        #header {
+            background: #28a745; /* Vibrant green */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        #header h1 {
+            margin: 0;
+        }
+
+        #nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        #nav a {
+            color: white;
+            text-decoration: none;
+            border: 2px solid transparent; /* For button styling */
+            border-radius: 25px; /* Rounded edges */
+            padding: 8px 16px; /* Button padding */
+        }
+
+        #nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
+        }
+
         #slider {
             position: relative;
             overflow: hidden;
@@ -27,6 +72,26 @@
             height: auto; /* Maintain aspect ratio */
             object-fit: cover; /* Cover the slider area */
         }
+
+        #about, #menu, #contact {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #444; /* Darker section background */
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #28a745; /* Keep vibrant green */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #28a745; /* Vibrant footer color */
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -43,7 +108,9 @@
 
     <section id="slider">
         <div class="slider-wrapper" id="slider-wrapper">
-            <div class="slides" id="slides"></div>
+            <div class="slides" id="slides">
+                <!-- Images will be added here by JavaScript -->
+            </div>
             <div class="scroll-text">Scroll down for more</div>
         </div>
     </section>
@@ -161,6 +228,16 @@
             "photos/312722434_6182006291827512_1540505160964512139_n.jpg",
             "photos/315021783_6234215316606609_4481306191238840769_n.jpg"
         ];
+
+        const slidesDiv = document.getElementById("slides");
+
+        // Create image elements for the slides
+        images.forEach(src => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.className = "slide-image";
+            slidesDiv.appendChild(img);
+        });
 
         let currentIndex = 0;
 
