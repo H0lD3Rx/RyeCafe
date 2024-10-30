@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rye Café</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add custom styles for the slider */
+        #slider {
+            position: relative;
+            overflow: hidden;
+            height: 400px; /* Adjust height as needed */
+            display: flex;
+            justify-content: center; /* Center the image */
+            align-items: center; /* Center vertically */
+        }
+
+        .slides {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease; /* Smooth slide transition */
+        }
+
+        .slide-image {
+            width: 100%; /* Full width of the slider */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the slider area */
+        }
+    </style>
 </head>
 <body>
     <header id="header">
@@ -106,7 +129,8 @@
         <p>Phone: (03) 9376 3366</p>
         <p>Hours:</p>
         <ul>
-            <li>Wednesday - Friday: 7 AM - 3 PM</li>
+            <li>Wednesday - Thursday: 7 AM - 3 PM</li>
+            <li>Friday: 7 AM - 3 PM</li>
             <li>Saturday: 8 AM - 3 PM</li>
             <li>Sunday: 9 AM - 3 PM</li>
             <li>Monday - Tuesday: 7 AM - 3 PM</li>
@@ -142,7 +166,7 @@
 
         function showSlide(index) {
             const slidesDiv = document.getElementById("slides");
-            slidesDiv.innerHTML = `<img src="${images[index]}" alt="Cafe Image" class="slide-image">`;
+            slidesDiv.style.transform = `translateX(${-index * 100}%)`; // Slide to the left
         }
 
         function nextSlide() {
