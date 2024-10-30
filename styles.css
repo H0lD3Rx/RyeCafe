@@ -1,1 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+}
 
+.slider {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    animation: slide 10s infinite linear;
+}
+
+.slider img {
+    width: 100%;
+    max-width: 100%;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-100%); }
+    40% { transform: translateX(-200%); }
+    /* Add more steps if you add more images */
+}
+
+.about {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+    animation-delay: 2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
